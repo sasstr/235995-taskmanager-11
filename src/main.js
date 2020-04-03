@@ -365,11 +365,6 @@ const createLoadMoreButtonTemplate = () => {
   );
 };
 
-const Position = {
-  AFTERBEGIN: `afterBegin`,
-  BEFOREEND: `beforeEnd`
-};
-
 /**
  * Функция вставляет шаблон в контейнер
  * @param {node} container контейнер куда будет вставлен шаблон
@@ -377,7 +372,7 @@ const Position = {
  * @param {string} place место куда будет вставлен шаблон
  * @return {void}
  */
-const render = (container, template, place = Position.BEFOREEND) => {
+const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
 };
 
@@ -404,7 +399,7 @@ const board = document.querySelector(`.board`);
 board.appendChild(boardTasks);
 const tasksContainer = document.querySelector(`.board__tasks`);
 
-render(board, createSortTemplate(), Position.AFTERBEGIN);
+render(board, createSortTemplate(), `afterbegin`);
 
 render(tasksContainer, createCardEditTemplate());
 
